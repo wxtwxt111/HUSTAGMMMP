@@ -1,0 +1,51 @@
+<!--pages/home/home.wxml-->
+<view>
+  <view class="HeadContainer">
+    <text class="TitleText">AG物资管理</text>
+  </view>
+  <view class="MainFeatureText">主要功能</view>
+  <view class="FeatureColumn">
+    <!--1-->
+    <view class="FeatureWindow" bindtap="goSearch">
+      <view class="FeatureCard">
+        <view class="Feature1ImgContainer">
+          <image class="FeatureImg" src="/images/Exclude.png" mode="aspectFit"/>
+        </view>
+        <text class="FeatureDescriptionText">物资查询和借用</text>
+      </view>
+    </view>
+    <!--2-->
+    <view class="FeatureWindow" bindtap="goSchedule">
+      <view class="FeatureCard">
+        <view class="Feature2ImgContainer">
+          <image class="FeatureImg" src="/images/consult.png" mode="aspectFit"/>
+        </view>
+        <text class="FeatureDescriptionText">进度查询</text>
+      </view>
+    </view>
+    <!--3-->
+    <view class="FeatureWindow">
+      <navigator url="/pages/add/add" class="FeatureCard">
+        <view url="/pages/add/add" class="Feature3ImgContainer">
+          <image class="FeatureImg" src="/images/Vector.png" mode="aspectFit"/>
+        </view>
+        <text class="FeatureDescriptionText">新增仓库物资</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="OneMoreThing">
+    <view bind:tap="showModal" class="SmallCard">
+      <view class="DetaiImgContainer">
+        <image class="DetailImg" src="/images/OneMoreThing.png" mode="aspectFit"/>
+      </view>
+      <text class="OneMoreDetailText">注意事项及借用流程</text>
+      <!-- 小窗口内容 -->
+      <view wx:if="{{ showModal1 }}" catchtap="hideModal" class="modal">
+        <view class="modal-content">
+          <view class="detailTitle">注意事项及借用流程</view>
+          <scroll-view scroll-y="true" class="detailText">1.请至少提前两天准备好活动策划，在HUST社指36号楼场地及物资借用小程序上申请借用教室，并将策划电子版以〝36号楼教室借用＋协会名称十日期〞的方式命名发送至办公室公邮bangongshi_hustag@l63.com。审批情况可在小程序上查询，审批通过方可使用；2.使用教室的当天须将手机上教室借用确认单给阿姨查看，并在36号楼教室借用登记表上进行借用登记；3.建议申请前先查询教室是否空闲，查询方式：【场地借用】-【教室借用查询】;4. 房问钥匙请找阿姨取用，教室使用结束运请将门锁好，把钥匙交给阿姨并在36号楼教室借用登记表上签离；5. 普通教室须有活动负责人陪同使用并保材设备完好，活动结束后请将教室清理干净，桌椅归位，如发现教室卫生及器材损坏问题将影响未来二次借用，谢谢配合；6. 如有任何疑问，请联系36号楼教室借用负责人杨景文：18022387956</scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

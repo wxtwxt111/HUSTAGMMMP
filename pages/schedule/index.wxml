@@ -1,0 +1,29 @@
+<view class="base-container">
+  <view class="header">物资借用进度查询</view>
+  <view class="input-container">
+    <input id="itemInput" placeholder="请输入物资名称" />
+    <picker id="statusSelect" mode="selector" range="{{statusRange}}" bindchange="statusChange">
+      <view class="picker">
+        <text>选择状态</text>
+        <text class="selected-status">{{selectedStatus}}</text>
+      </view>
+    </picker>
+    <button bindtap="queryProgress">查询</button>
+  </view>
+  <view class="result-container">
+    <block wx:if="{{progressData.length > 0}}">
+      <view class="result-header">查询结果</view>
+      <view class="result-table">
+        <block wx:for="{{progressData}}" wx:for-item="item">
+          <view class="result-row">
+            <view class="result-cell">{{item.name}}</view>
+            <view class="result-cell">{{item.progress}}%</view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="no-match">未找到匹配的物资</view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,88 @@
+<!--pages/add/add.wxml-->
+<!--背景-->
+<view class="back">
+  <image src="/images/back.png" mode="widthFix" style="width: 100vw;"/>
+</view>
+<!-- 自定义导航栏，包含返回按钮 -->
+<view>
+  <!-- 返回按钮的图标和文本 -->
+  <!-- 这里其实并没有什么用（当时不知道可用margin-top）就当这个空对象是屎山代码的一部分罢-->
+  <text class="air1"></text>
+  <!-- 整个一行 -->
+  <view class="containerinput1">
+    <!-- 前两个元素 -->
+    <view class="containerinput1child1">
+      <!-- 图标容器 -->
+      <navigator url="/pages/home/home" class="imgcontainer1">
+        <image src="/images/back-icon.png" class="back-icon"></image>
+      </navigator>
+      <!-- 文本 -->
+      <text class="back-text">新增仓库物资</text>
+      </view>
+      <!-- "···"图标容器 -->  
+      <view class="imgcontainer2" bind:tap="HistoryMenuAppear" style="{{viewData.MyshowMenuButtonContainerStyle}}">
+        <image src="/images/etc-icon.png" class="etc-icon"></image>
+      </view>
+      <view wx:if="{{ showMenu }}" class="HistoryMenu">
+        <view class="LeftCircle"></view>
+        <view class="Center">
+          <navigator url="/pages/add/children/history">
+            <image class="HistoryImg" src="/images/History.png" mode="aspectFit"/>
+          </navigator>
+        </view>
+        <view class="RightCircle"></view>   
+      </view>
+  </view>
+</view>
+
+<form bindsubmit="AddForm">
+  <!-- 第一个输入框 -->
+  <view class="sheetcontainer1">
+    <text class="inputcontainer1ftext">物资名称</text>
+    <input type="text" class="inputcontainer1" name='AddName' placeholder="在这里输入物资名称" />
+  </view>
+  <!-- 第二个输入框 -->
+  <view class="sheetcontainer1">
+    <view class="TextContainer1">
+      <text class="inputcontainer1ftext">物资数量</text>
+    </view>
+    <input type="number" class="inputcontainer1" name='AddNumber' placeholder="在这里输入物资数量" />
+  </view>
+  <!-- 第三个输入框 -->
+  <view class="sheetcontainer1">
+    <view class="TextContainer1">
+      <text class="inputcontainer1ftext">物资状态</text>
+    </view>
+    <view class="SelectButton">
+      <!--1是可用，2是不可用-->
+      <radio-group bindchange="radioChange">
+        <radio value="1" checked="true">可用</radio>
+        <radio value="0" >不可用</radio>
+      </radio-group>
+    </view>
+  </view>
+  <!-- 第四输入框 -->
+  <view class="sheetcontainer2">
+    <view class="TextContainer2">
+      <text class="inputcontainer2ftext">备注</text>
+    </view>
+    <view class="DetailContainer2">
+      <!-- 设想是用一个大的view白框依次装下照片和其他内容，马上这里会补上 -->
+      <!-- 这个框装下图片和下方白色Text组合体 -->
+      <view class="ShowPicMain1">
+        <view class="ShowPicMain">
+        <!-- 图片容器 -->
+        <image src="{{PostData.AddPhoto}}" bind:tap="ImageSelect" class="PicContainer"></image>
+        <!-- 文本内容 -->
+        <text class="ShowPicText" bind:tap="ImageSelect" >添加照片</text>
+        </view>
+      </view>
+      <textarea maxlength="-1" class="inputcontainer2" name='AddDetail' placeholder="上传照片以及其他"></textarea>
+    </view>
+  </view>
+  <view class="AddButtonContainer">
+    <button formType="submit" class="AddButton" style="width:  100%" >添加物资！</button>
+  </view>  
+</form>
+<!--这里其实想加一个动画但是没有什么反应-->
+<image class="toast" src="/images/Complete.png" wx:if="{{ showToast }}" animation="{{ animationData }}"></image>

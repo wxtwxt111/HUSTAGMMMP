@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/add/children/history",
+    "pages/logs/logs",
+    "pages/index/index",
+    "pages/index1/index1",
+    "pages/search/index",
+    "pages/schedule/index",
+    "pages/add/add"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

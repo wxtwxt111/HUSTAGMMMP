@@ -1,0 +1,147 @@
+/* pages/home/home.wxss */
+/*Back*/
+page{
+  background: linear-gradient(180deg, #F5FEDC 0%, #EEE 58%);
+}
+
+.TitleText{
+  color: #000;
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 87.5%;
+  letter-spacing: -0.32px;
+}
+
+.HeadContainer{
+  margin-top: 75px;
+  margin-left: 20px;
+}
+
+.MainFeatureText{
+  margin-top: 33px;
+  margin-left: 20px;
+}
+
+.FeatureColumn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FeatureImg{
+  margin-left: 16.5px;
+  margin-right: 16.5px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 2px;
+}
+
+.DetailImg{
+  width: 50px;
+  height: 50px;
+}
+
+.FeatureDescriptionText{
+  margin-bottom: auto;
+  color: #000;
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%; 
+  letter-spacing: -0.32px;
+}
+
+.FeatureWindow{
+  display: flex;
+  width: 101px;
+  height: 123px;
+  padding: 15px 9px 27px 9px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.FeatureCard{
+  display: grid;
+}
+
+.SmallCard{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #6BB82C;
+}
+
+.OneMoreThing{
+  margin-left: 21px;
+  margin-right: 20px;
+  margin-bottom: auto;
+}
+
+.DetailImg{
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.OneMoreDetailText{
+  color: #FFF;
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 87.5%;
+  letter-spacing: -0.32px;
+}
+
+
+/* 小卡片点击样式 */
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #FFF;
+  width: 300px;
+  height: 600px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.detailTitle{
+  color: #000;
+  text-align: center;
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px; /* 131.25% */
+  letter-spacing: -0.32px;
+}
+
+.detailText{
+  width: 300px;
+  height: 600px;
+}

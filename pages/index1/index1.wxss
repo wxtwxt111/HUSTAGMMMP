@@ -1,0 +1,70 @@
+/**index1.wxss**/
+.base-container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 58rpx 0;
+  background-color: #E0F9C6;
+}
+
+.title {
+  font-size: 48rpx;
+  margin-bottom: 20rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.box-title {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  font-weight: 400;
+}
+ 
+.content{
+  box-sizing: border-box;
+}
+
+.weui-input {
+  height: 64rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  margin-bottom: 30rpx;
+  padding-left: 20rpx;
+}
+
+.box-item {
+  height: 208rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  padding: 0 30rpx;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-item text {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 400;
+}
+
+.box-item text:last-child {
+  background: #07C160;
+  color: #fff;
+  padding: 5rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.btn {
+  background-color: #07C160;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 60rpx;
+  border-radius: 10rpx;
+}

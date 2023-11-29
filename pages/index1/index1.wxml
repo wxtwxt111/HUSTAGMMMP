@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="base-container">
+
+  <view class="contentsPages" style="height:{{navBarHeight}}px; padding: {{titleBottom+45}}rpx 0rpx 0rpx 20rpx;">
+    <view>
+      <view class="back-button" bindtap="goBack">返回</view>
+    </view>
+  </view>
+  <view class="title">物资名称</view>
+  <view class="title">1/3</view>
+  <view class="box-title">借用名称</view>
+  <view class="content">
+    <input class="weui-input" placeholder="姓名" placeholder-style="color: #000;"/>
+    <input class="weui-input" placeholder="学号"
+    placeholder-style="color: #000;"/>
+    <input class="weui-input" placeholder="数量"
+    placeholder-style="color: #000;"/>
+    <input class="weui-input" placeholder="借用日期"
+    placeholder-style="color: #000;"/>
+    <input class="weui-input" placeholder="归还日期"
+    placeholder-style="color: #000;"/>
+  </view>
+  <view class="btn" bindtap="submit">提交</view>
+</view>
