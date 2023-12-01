@@ -8,6 +8,7 @@ Page({
     // showModal: 0,
     HaveCommitted: true,
     showModal: false,
+    // commitHistory停用
     commitHistory:[
       {
         Addid:1,
@@ -58,6 +59,92 @@ Page({
         AddPhoto: '/images/Default-pic.png',
       }
     ],
+
+    boxArray: [{
+      title: '长绮',
+      materialStruct: [{
+        index: '1',
+        status: 1,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }, {
+        index: '2',
+        status: 1,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }, {
+        index: '3',
+        status: 0,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }],
+      updateInfoStruct: [{
+        update: '王五',
+        updateNumber: 'U121212122',
+        updateDate: "1月1日",
+        verify: "Mike",
+      }],
+      detail: '这只是个备注',
+      detailPhoto: '/images/firefox.png',
+      // unavaliableNumber: 3,
+    },{
+      title: '素食',
+      materialStruct: [{
+        index: '1',
+        status: 0,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }, {
+        index: '2',
+        status: 0,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }, {
+        index: '3',
+        status: 0,
+        lendInfoStruct: [{
+          lender: "张三",
+          lenderNum: "U202114514",
+          useFor: "组织活动",
+          returnDate: "2月30日",
+          verify: "Lucy",
+        }],
+      }],
+      updateInfoStruct: [{
+        update: '王五',
+        updateNumber: 'U121212122',
+        updateDate: "1月1日",
+        verify: "Mike",
+      }],
+      detail: '（验证Scoll-view可行性）球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；',
+      detailPhoto: '/images/Default-pic.png',
+      // unavaliableNumber: 3,
+    }],
     /* currentCardIndex 是用于在小卡片具体展示中获取的CurrentIndex。 */
     currentCardIndex: null,
     /*
@@ -77,7 +164,7 @@ Page({
     const cardIndex = e.currentTarget.dataset.cardIndex;
     console.log("1ws")
     console.log(cardIndex);
-    console.log(this.data.commitHistory[cardIndex]);
+    console.log(this.data.boxArray[cardIndex]);
     this.setData({
       showModal: true,
       currentCardIndex: cardIndex,

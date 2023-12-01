@@ -1,20 +1,24 @@
+// pages/index/index.js
+
 Page({
   data: {
-    statusRange: ['全部', '待审核', '已通过'],
-    selectedStatus: '全部',
-    progressData: []
+    showLine: false, // 控制线段显示与隐藏
+    lineWidth: 0, // 线段的宽度
   },
-  statusChange: function (e) {
+
+  startAnimation: function () {
+    // 点击元素后触发动画
     this.setData({
-      selectedStatus: this.data.statusRange[e.detail.value]
+      showLine: true,
+      lineWidth: 10, // 设置线段的初始宽度
     });
+
+    // 动画结束后隐藏线段
+    setTimeout(() => {
+      this.setData({
+        showLine: false,
+        lineWidth: 0, // 重置线段宽度
+      });
+    }, 500); // 这里的 500 毫秒需要和过渡效果的时间一致
   },
-  queryProgress: function () {
-    var item = this.data.itemInput || "";
-    var status = this.data.selectedStatus === "全部" ? "all" : (this.data.selectedStatus === "待审核" ? "pending" : "approved");
-    var result = borrowedProgress.queryProgress(item, status);
-    this.setData({
-      progressData: result
-    });
-  }
 });

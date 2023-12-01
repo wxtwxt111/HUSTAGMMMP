@@ -1,7 +1,7 @@
 <!--pages/add/children/history.wxml-->
 <!--背景-->
 <view class="back">
-  <image src="/images/back.png" mode="widthFix" style="width: 100vw;"/>
+  <image src="/images/back.png" mode="widthFix" style="width: 100vw;" />
 </view>
 
 <view>
@@ -16,55 +16,83 @@
         <image src="/images/back-icon.png" class="back-icon"></image>
       </navigator>
       <!-- 文本 -->
-      <text class="back-text">这应该是历史记录</text>
-      </view>
-      <!-- "···"图标容器 -->  
-      <view class="imgcontainer2">
-        <image src="/images/etc-icon.png" class="etc-icon"></image>
-      </view>
+      <text class="back-text">历史记录</text>
+    </view>
+    <!-- "···"图标容器 -->
+    <view class="imgcontainer2">
+      <image src="/images/etc-icon.png" class="etc-icon"></image>
+    </view>
   </view>
 </view>
 
 <view class="history-container">
   <scroll-view scroll-y="true" class="MainScroll">
-      <view wx:if="{{ !HaveCommitted }}">
-        <view class="BlankContainer">
-          
-        </view>
+    <view wx:if="{{ !HaveCommitted }}">
+      <view class="BlankContainer">
+
       </view>
-      <view wx:if="{{ HaveCommitted }}">
-        <view wx:for="{{ commitHistory }}" wx:for-item="commit" wx:for-index="index">
-      <!-- 判断是否是最近三次提交，设置不同的样式 -->
-      <view class="card" catchtap="showModal" data-card-index="{{ index }}">
-        <view class="commit-content">{{ commit.AddName }}</view>
-        <view class="commit-small">
-          <view>数量：{{ commit.AddNumber }}</view>
-          <view wx:if="{{ commit.AddStatus == 1}}">状态：可用</view>
-          <view wx:if="{{ commit.AddStatus == 0}}">状态：不可用</view>
-        </view>
-        <view class="commit-detail">备注：{{ commit.AddDetail }}</view>
-        <!-- 小窗口内容 -->
-        <view wx:if="{{ showModal }}" catchtap="hideModal" class="modal">
-          <view class="bordercontainer">
-            <!-- 这个地方不知道为什么调用 commit.AddStatus得到的值都是 1 -->
-            <view class="modal-content">
-            <image class="modal-image" src="{{ commitHistory[currentCardIndex].AddPhoto }}" mode="aspectFit"/>
-            <view class="modal-contentsmall">
-              <view class="modal-addname">{{ commitHistory[currentCardIndex].AddName }}</view>
-              <view class="modal-addnumber">数量：{{ commitHistory[currentCardIndex].AddNumber }}</view>
-              <view wx:if="{{ commitHistory[currentCardIndex].AddStatus == 1}}" class="modal-addstatus">状态：可用</view>
-              <view wx:if="{{commitHistory[currentCardIndex].AddStatus == 0}}" class="modal-addstatus">状态：不可用</view>
-              <scroll-view scroll-y="true" class="modal-adddetailScollview">
-                <text class="LongText">备注：{{ commitHistory[currentCardIndex].AddDetail }}</text>
-              </scroll-view>
-            </view>
-            </view>
+    </view>
+    <view wx:if="{{ HaveCommitted }}">
+      <view wx:for="{{ boxArray }}" wx:for-item="commit" wx:for-index="index">
+        <!-- 判断是否是最近三次提交，设置不同的样式 -->
+        <view class="card" catchtap="showModal" data-card-index="{{ index }}">
+          <view class="commit-content">{{ commit.title }}</view>
+          <view class="commit-small">
+            <wxs module="Card">
+              var countAvailable = function (materialStruct) {
+                var number = 0;
+                for (var i = 0; i < materialStruct.length; i++) {
+                  if (materialStruct[i].status) {
+                    number += 1;
+                  }
+                }
+                return number;
+              }
+
+              var countAll = function (materialStruct) {
+                return materialStruct.length;
+              }
+
+              var ifAvailable = function (materialStruct) {
+                if (countAvailable(materialStruct)) {
+                  return 1;
+                }
+                else {
+                  return 0;
+                }
+              }
+              module.exports.countAvailable = countAvailable;
+              module.exports.countAll = countAll;
+              module.exports.ifAvailable = ifAvailable;
+            </wxs>
+            <view>数量：{{ Card.countAll(boxArray[index].materialStruct) }}</view>
+            <view wx:if="{{ Card.ifAvailable(boxArray[index].materialStruct) }}">状态：可用</view>
+            <view wx:if="{{ !Card.ifAvailable(boxArray[index].materialStruct) }}">状态：不可用</view>
           </view>
-  
+          <view class="commit-detail">备注：{{ commit.detail }}</view>
+          <!-- 小窗口内容 -->
+          <view wx:if="{{ showModal }}" catchtap="hideModal" class="modal">
+            <view class="bordercontainer">
+              <!-- 这个地方不知道为什么调用 commit.AddStatus得到的值都是 1 -->
+              <view class="modal-content">
+                <image class="modal-image" src="{{ boxArray[currentCardIndex].detailPhoto }}" mode="aspectFit" />
+                <view class="modal-contentsmall">
+                  <view class="modal-addname">{{ boxArray[currentCardIndex].title }}</view>
+                  <view class="modal-addnumber">数量：{{ Card.countAll(boxArray[currentCardIndex].materialStruct) }}</view>
+                  <view wx:if="{{ Card.ifAvailable(boxArray[currentCardIndex].materialStruct) }}">状态：可用</view>
+                  <view wx:if="{{ !Card.ifAvailable(boxArray[currentCardIndex].materialStruct) }}">状态：不可用</view>
+                  <!--这里再加上审核相关的信息更好-->
+                  <scroll-view scroll-y="true" class="modal-adddetailScollview">
+                    <text class="LongText">备注：{{ boxArray[currentCardIndex].detail }}</text>
+                  </scroll-view>
+                </view>
+              </view>
+            </view>
+
+          </view>
         </view>
       </view>
-        </view>
-      </view>
+    </view>
   </scroll-view>
 
 </view>

@@ -1,4 +1,4 @@
-// index.js
+// searchAndLend.js
 let availableLendButtonColorStyle = `
 --background:#07C160;
 `
@@ -13,6 +13,8 @@ Page({
     titleBottom: 0, //顶部距离
     title: '自定义顶部',
     searchInputData: '',
+    currentCardIndex: 0,
+    showModal: false,
     viewData: [{
       lendButtonColor: availableLendButtonColorStyle,
     }],
@@ -97,7 +99,7 @@ Page({
         updateDate: "1月1日",
         verify: "Mike",
       }],
-      detail: '这只是个备注',
+      detail: '（验证Scoll-view可行性）球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；球球你们了，快去看MyGo吧TAT；',
       detailPhoto: '/images/Default-pic.png',
       // unavaliableNumber: 3,
     }]
@@ -165,9 +167,27 @@ Page({
   handleInputChange: function (e) {
     const inputValue = e.detail.value;
     console.log(inputValue);
-    console.log(boxArray[0])
+    console.log(this.data.boxArray[0]);
     this.setData({
       searchInputData: inputValue,
     })
-  }
+  },
+
+  showModal: function (e) {
+    const cardIndex = e.currentTarget.dataset.cardIndex;
+    console.log("12ws")
+    console.log(cardIndex);
+    console.log(this.data.boxArray[cardIndex]);
+    this.setData({
+      showModal: true,
+      currentCardIndex: cardIndex,
+    });
+  },
+
+  hideModal: function () {
+    this.setData({
+      showModal: false,
+    });
+  },
+
 })

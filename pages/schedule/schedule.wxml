@@ -1,29 +1,117 @@
-<view class="base-container">
-  <view class="header">物资借用进度查询</view>
-  <view class="input-container">
-    <input id="itemInput" placeholder="请输入物资名称" />
-    <picker id="statusSelect" mode="selector" range="{{statusRange}}" bindchange="statusChange">
-      <view class="picker">
-        <text>选择状态</text>
-        <text class="selected-status">{{selectedStatus}}</text>
+<!--search.wxml-->
+<!--背景-->
+<view class="back">
+  <image src="/images/back.png" mode="widthFix" style="width: 100vw;"/>
+</view>
+<view>
+  <!-- 返回按钮的图标和文本 -->
+  <text class="air1"></text>
+  <!-- 整个一行 -->
+  <view class="containerinput1">
+    <!-- 前两个元素 -->
+    <view class="containerinput1child1">
+      <!-- 图标容器 -->
+      <navigator url="/pages/home/home" class="imgcontainer1">
+        <image src="/images/back-icon.png" class="back-icon"></image>
+      </navigator>
+      <!-- 文本 -->
+      <text class="back-text">进度查询</text>
       </view>
-    </picker>
-    <button bindtap="queryProgress">查询</button>
+      <!-- "···"图标容器 -->  
+      <view class="imgcontainer2">
+        <image src="/images/etc-icon.png" class="etc-icon"></image>
+      </view>
   </view>
-  <view class="result-container">
-    <block wx:if="{{progressData.length > 0}}">
-      <view class="result-header">查询结果</view>
-      <view class="result-table">
-        <block wx:for="{{progressData}}" wx:for-item="item">
-          <view class="result-row">
-            <view class="result-cell">{{item.name}}</view>
-            <view class="result-cell">{{item.progress}}%</view>
-          </view>
-        </block>
+</view>
+
+<view class="mainWindow">
+  <view class="content">
+
+    <!--实在没时间写了就写了一个摆设，大家有时间邦邦QAQ-->
+    <view class="history-container">
+      <view class="inputWindow" >
+        <view class="selectText1">全部</view>
+        <view class="selectText1" style="color: #979797;">待审批</view>
+        <view class="selectText1" style="color: #979797;">已通过</view>
       </view>
-    </block>
-    <block wx:else>
-      <view class="no-match">未找到匹配的物资</view>
-    </block>
+      <scroll-view scroll-y="true" class="MainScroll">
+        <view wx:if="{{ !NotBlank }}">
+          <view class="BlankContainer">
+
+          </view>
+        <!--很不负责任地复制了四次QAQ-->
+        </view>
+        <view>
+            <!-- 设置不同的样式 -->
+            <view class="card">
+
+              <view class="commit-left">
+                <view class="commit-content">物资名称   
+                <view class="commit-small">
+                  <view>借用人/数量/借用时间（具体信息）</view>
+                </view>
+              </view>
+
+              <view class="commit-right">已通过</view>
+
+            </view>
+              <!-- 这是一个用于检测是否可以借用的东西 -->
+          </view>
+        </view>
+        <view>
+            <!-- 设置不同的样式 -->
+            <view class="card">
+
+              <view class="commit-left">
+                <view class="commit-content">物资名称   
+                <view class="commit-small">
+                  <view>借用人/数量/借用时间（具体信息）</view>
+                </view>
+              </view>
+
+              <view class="commit-right">已通过</view>
+
+            </view>
+              <!-- 这是一个用于检测是否可以借用的东西 -->
+          </view>
+        </view>
+        <view>
+            <!-- 设置不同的样式 -->
+            <view class="card">
+
+              <view class="commit-left">
+                <view class="commit-content">物资名称   
+                <view class="commit-small">
+                  <view>借用人/数量/借用时间（具体信息）</view>
+                </view>
+              </view>
+
+              <view class="commit-right">已通过</view>
+
+            </view>
+              <!-- 这是一个用于检测是否可以借用的东西 -->
+          </view>
+        </view>
+        <view>
+            <!-- 设置不同的样式 -->
+            <view class="card">
+
+              <view class="commit-left">
+                <view class="commit-content">物资名称   
+                <view class="commit-small">
+                  <view>借用人/数量/借用时间（具体信息）</view>
+                </view>
+              </view>
+
+              <view class="commit-right">已通过</view>
+
+            </view>
+              <!-- 这是一个用于检测是否可以借用的东西 -->
+          </view>
+        </view>
+      </scroll-view>
+
+    </view>
+    <!---->
   </view>
 </view>
