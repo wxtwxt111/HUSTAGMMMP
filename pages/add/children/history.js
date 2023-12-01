@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // showModal: 0,
     HaveCommitted: true,
     showModal: false,
     commitHistory:[
@@ -12,7 +13,7 @@ Page({
         Addid:1,
         AddName: '只因',
         AddNumber: '1',
-        AddStatue: '0',
+        AddStatus: '0',
         AddDetail: '你太美',
         AddPhoto: '/images/Default-pic.png',
       },
@@ -20,7 +21,7 @@ Page({
         Addid:2,
         AddName: '我不知道喵',
         AddNumber: '1',
-        AddStatue: '1',
+        AddStatus: '1',
         AddDetail: '要是事先知道我就会阻止了(TAT)//小桂子非要拉着我来这么一出(TAT)//对不起没能阻止她(TAT)//对不起没能阻止她(TAT)//',
         AddPhoto: '/images/firefox.png',
       },
@@ -28,7 +29,7 @@ Page({
         Addid:3,
         AddName: '物资',
         AddNumber: '1',
-        AddStatue: '1',
+        AddStatus: '1',
         AddDetail: '不行，他行吗？如行。他真行吗？如行。所以他到底行不行？如行。这这这是为什么呢？中国人有句古话：宇宙万法的那个源头，它是什么？它是如如。所以有一个词叫做如来。我总是说，如来这个词很有意思。所以那他来了吗？如来。他真来了吗？如来。所以他到底来没来？如来。你说什么？啊对对对',
         AddPhoto: '/images/Default-pic.png',
       },
@@ -36,7 +37,7 @@ Page({
         Addid:1,
         AddName: '只因',
         AddNumber: '1',
-        AddStatue: '0',
+        AddStatus: '0',
         AddDetail: '你太美',
         AddPhoto: '/images/Default-pic.png',
       },
@@ -44,7 +45,7 @@ Page({
         Addid:2,
         AddName: '米浴',
         AddNumber: '1',
-        AddStatue: '1',
+        AddStatus: '1',
         AddDetail: '要是事先知道我就会阻止了(TAT)//小桂子非要拉着我来这么一出(TAT)//对不起没能阻止她(TAT)//对不起没能阻止她(TAT)//',
         AddPhoto: '/images/Default-pic.png',
       },
@@ -52,7 +53,7 @@ Page({
         Addid:3,
         AddName: '物资',
         AddNumber: '1',
-        AddStatue: '1',
+        AddStatus: '1',
         AddDetail: '不行，他行吗？如行。他真行吗？如行。所以他到底行不行？如行。这这这是为什么呢？中国人有句古话：宇宙万法的那个源头，它是什么？它是如如。所以有一个词叫做如来。我总是说，如来这个词很有意思。所以那他来了吗？如来。他真来了吗？如来。所以他到底来没来？如来。你说什么？啊对对对',
         AddPhoto: '/images/Default-pic.png',
       }
@@ -63,7 +64,7 @@ Page({
     CurrentData:{
       AddName: '',
       AddNumber: '',
-      AddStatue: '1',
+      AddStatus: '1',
       AddDetail: '',
       AddPhoto: '',
     },

@@ -24,7 +24,7 @@ Page({
     PostData: {
       AddName: '',
       AddNumber: '',
-      AddStatue: '1',
+      AddStatus: '1',
       AddDetail: '',
       AddPhoto: '/images/Default-pic.png', /*图片是什么格式来着哦好像这玩意返回的是临时存储路径*/
     },
@@ -98,7 +98,7 @@ Page({
   radioChange: function(e){
     console.log('单选：', e.detail.value)
     this.setData({
-      'PostData.AddStatue': e.detail.value
+      'PostData.AddStatus': e.detail.value
     });
   },
 

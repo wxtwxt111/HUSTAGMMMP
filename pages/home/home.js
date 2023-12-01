@@ -10,13 +10,19 @@ Page({
 
   goSearch() {
     wx.navigateTo({
-      url: '/pages/search/index',
+      url: '/pages/searchAndLend/searchAndLend',
     })
   },
 
   goSchedule() {
     wx.navigateTo({
-      url: '/pages/schedule/index',
+      url: '/pages/schedule/schedule',
+    })
+  },
+
+  goAdd(){
+    wx.navigateTo({
+      url: '/pages/add/add',
     })
   },
 

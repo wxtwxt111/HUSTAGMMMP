@@ -5,8 +5,8 @@
     "pages/logs/logs",
     "pages/index/index",
     "pages/index1/index1",
-    "pages/search/index",
-    "pages/schedule/index",
+    "pages/searchAndLend/searchAndLend",
+    "pages/schedule/schedule",
     "pages/add/add"
   ],
   "window": {

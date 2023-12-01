@@ -1,0 +1,190 @@
+/**index.wxss**/
+/*because the design annouced the element (defaul by WeUI)--this is air to cover the gap*/
+.air1{
+  display: flex;
+  width: 100px;
+  height: 44px;
+  padding: 6px 6px 6px 7px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/*This is the first element*/
+.containerinput1{
+  width: 100vw;
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  justify-content: space-between;
+}
+
+.containerinput1child1{
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  justify-content: space-between;
+}
+.imgcontainer1{
+  margin-left: 27px;
+  display: flex;
+  width: 12px;
+  height: 24px;
+  padding: 3.5px 2px 3.5px 1.002px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;  
+}
+.back-icon {
+  width: 8.998px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.back-text {
+  color: #000;
+  text-align: center;
+  margin: 10px;
+  font-family: PingFang SC;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 87.5%; /*  */
+  letter-spacing: -0.32px;
+  flex-direction: row;
+}
+
+/*Etc icon*/
+.imgcontainer2{
+  border-radius: 20%;
+  margin-right: 17px;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 0px 3.25px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  /*background-color: transparent;*/
+  /*background-color: #FFF;*/
+  opacity: 0;
+}
+.etc-icon{
+  width: 17.5px;
+  height: 3.5px;
+  flex-shrink: 0;
+}
+
+.mainWindow{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+
+.base-container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 58rpx 0;
+  background-color: #E0F9C6;
+} 
+
+.title {
+  font-size: 48rpx;
+  margin-bottom: 30rpx;
+  font-weight: 700;
+}
+ 
+.content{
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.weui-input {
+  height: 64rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  padding-left: 20rpx;
+}
+
+.box-item {
+  height: 208rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  padding: 0 30rpx;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-item text {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 400;
+}
+
+.box-item text:last-child {
+  background: #07C160;
+  color: #fff;
+  padding: 5rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.history-container {
+  margin-top: 12px;
+  
+}
+
+.card {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.commit-left{
+  height: 40px;
+}
+
+.commit-right{
+  margin-left: auto;
+  height: 40px;
+}
+.commit-small {
+  display: grid;
+  font-size: 14px;
+  color: #888;
+}
+
+.commit-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.commit-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.lend-button{
+  color: #FFF;
+  font-family: PingFang SC;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

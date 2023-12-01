@@ -24,13 +24,13 @@
       </view>
     </view>
     <!--3-->
-    <view class="FeatureWindow">
-      <navigator url="/pages/add/add" class="FeatureCard">
+    <view class="FeatureWindow" bindtap="goAdd">
+      <view class="FeatureCard">
         <view url="/pages/add/add" class="Feature3ImgContainer">
           <image class="FeatureImg" src="/images/Vector.png" mode="aspectFit"/>
         </view>
         <text class="FeatureDescriptionText">新增仓库物资</text>
-      </navigator>
+      </view>
     </view>
   </view>
   <view class="OneMoreThing">

@@ -1,0 +1,105 @@
+<!--search.wxml-->
+<view>
+  <!-- 返回按钮的图标和文本 -->
+  <text class="air1"></text>
+  <!-- 整个一行 -->
+  <view class="containerinput1">
+    <!-- 前两个元素 -->
+    <view class="containerinput1child1">
+      <!-- 图标容器 -->
+      <navigator url="/pages/add/add" class="imgcontainer1">
+        <image src="/images/back-icon.png" class="back-icon"></image>
+      </navigator>
+      <!-- 文本 -->
+      <text class="back-text">物资查询和借用</text>
+      </view>
+      <!-- "···"图标容器 -->  
+      <view class="imgcontainer2">
+        <image src="/images/etc-icon.png" class="etc-icon"></image>
+      </view>
+  </view>
+</view>
+
+<view class="mainWindow">
+  <view scroll-y="true" class="content">
+    <input class="weui-input" placeholder="请输入需要查询的物资" placeholder-style="color: #000;" bindinput="handleInputChange" />
+    <!---->
+    <view class="history-container">
+      <scroll-view scroll-y="true" class="MainScroll">
+        <view wx:if="{{ !NotBlank }}">
+          <view class="BlankContainer">
+
+          </view>
+        </view>
+        <view wx:if="{{ NotBlank }}">
+          <view wx:for="{{ boxArray }}" wx:for-item="project" wx:for-index="index" wx:if="{{ project.title.indexOf(searchInputData) !== -1 }}">
+            <!-- 设置不同的样式 -->
+            <view class="card" catchtap="showModal">
+              <view class="commit-content">{{ project.title }}</view>
+                <view class="commit-small">
+                  <!--这里使用wxs脚本来解决问题-->
+                  <!--此处wxs脚本的作用是：统计js里的示例数据中 可用/总数-->
+                  <wxs module="Card">
+                  var countAvailable = function(materialStruct){
+                    var number = 0;
+                    for (var i = 0; i < materialStruct.length; i++) {
+                      if (materialStruct[i].status) {
+                        number += 1;
+                      }
+                    }
+                    return number;
+                   }
+                  
+                   var countAll = function(materialStruct){
+                    return materialStruct.length;
+                   }
+
+                   var ifAvailable = function(materialStruct){
+                     if (countAvailable(materialStruct)) {
+                       return 1;
+                     }
+                     else{
+                       return 0;
+                     }
+                   }
+                  module.exports.countAvailable = countAvailable;
+                  module.exports.countAll = countAll;
+                  module.exports.ifAvailable = ifAvailable;
+                  </wxs>
+                  <view>数量：{{ Card.countAvailable(boxArray[index].materialStruct) }} / {{ Card.countAll(boxArray[index].materialStruct) }}</view>
+                </view>
+              <!-- 这是一个用于检测是否可以借用的东西 -->
+              <view wx:if="{{ Card.ifAvailable(boxArray[index].materialStruct) }}" class="commit-detail" style="background-color: #07C160;">
+                <view class="lend-button" data-card-index="{{ index }}" bind:tap="lend">借用</view>
+              </view>
+              <view wx:if="{{ !Card.ifAvailable(boxArray[index].materialStruct) }}" class="commit-detail" style="background-color: #7c7c7c;">
+                <view class="lend-button" data-card-index="{{ index }}">借用</view>
+              </view>
+              <!-- 小窗口内容 -->
+              <view wx:if="{{ showModal }}" catchtap="hideModal" class="modal">
+                <view class="bordercontainer">
+                  <!-- 这个地方不知道为什么调用 commit.AddStatus得到的值都是 1 -->
+                  <view class="modal-content">
+                    <image class="modal-image" src="{{ commitHistory[currentCardIndex].AddPhoto }}" mode="aspectFit" />
+                    <view class="modal-contentsmall">
+                      <view class="modal-addname">{{ commitHistory[currentCardIndex].AddName }}</view>
+                      <view class="modal-addnumber">数量：{{ commitHistory[currentCardIndex].AddNumber }}</view>
+                      <view wx:if="{{ commitHistory[currentCardIndex].AddStatus == 1}}" class="modal-addstatus">状态：可用</view>
+                      <view wx:if="{{commitHistory[currentCardIndex].AddStatus == 0}}" class="modal-addstatus">状态：不可用</view>
+                      <scroll-view scroll-y="true" class="modal-adddetailScollview">
+                        <text class="LongText">备注：{{ commitHistory[currentCardIndex].AddDetail }}</text>
+                      </scroll-view>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </view>
+    <!---->
+  </view>
+</view>
